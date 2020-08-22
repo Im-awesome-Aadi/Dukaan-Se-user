@@ -1,65 +1,292 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fancy_bar/fancy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:users/constants.dart';
 import 'package:users/eachShop.dart';
+import 'dart:math';
+
+import 'cart.dart';
+
 class DashBoard extends StatefulWidget {
   @override
   _DashBoardState createState() => _DashBoardState();
 }
 
 class _DashBoardState extends State<DashBoard> {
+  Random random = Random();
   String userId;
   var _stream;
-  List shopID;
-  List shopName;
-  List shopAddress;
+
+  List<Map<String, dynamic>> storesData = [
+    {
+      'shopName': 'The Country Store',
+      'category': 'General Store',
+      'shopOwnerName': 'Akash Gupta',
+      'address':
+          '490, Bhim Market , Pandav Road, Dilshad Garden, Delhi - 110032',
+      'shopTimings': '9AM to 8PM',
+      'shopOffHours': '1PM to 2PM',
+    },
+    {
+      'shopName': 'Gupta Jewellers',
+      'category': 'Jewellers',
+      'shopOwnerName': 'Shashank Gupta',
+      'address':
+          '2/49, Near Bhim Street, Pandav Road, Shahdara, Delhi - 110032',
+      'shopTimings': '9AM to 8PM',
+      'shopOffHours': '1PM to 2PM',
+    },
+    {
+      'shopName': 'Awasthi Supplement',
+      'category': 'Supplement shop',
+      'shopOwnerName': 'Harshit Awasthi',
+      'address':
+          '776, Near Teacher Colony, Bahadurgarh Road, Jhajjar, Haryana - 199032',
+      'shopTimings': '10AM to 8PM',
+      'shopOffHours': '1PM to 2PM',
+    },
+    {
+      'shopName': 'Jyoti Parlour',
+      'category': 'Beauty Parlour',
+      'shopOwnerName': 'Jyoti mahajan',
+      'address':
+          '2/88, Near Friends Colony, Pandav Road, Dwarka, Delhi - 110032',
+      'shopTimings': '9AM to 8PM',
+      'shopOffHours': '1PM to 2PM',
+    },
+    {
+      'shopName': 'Aditya Dairy',
+      'category': 'Dairy',
+      'shopOwnerName': 'Aditya Maheshwari',
+      'address':
+          '02,Ground Floor,Adarsh Complex, Noida Road, Ghaziabad, U.P. - 198760',
+      'shopTimings': '9AM to 5PM',
+      'shopOffHours': '11AM to 3PM',
+    },
+    {
+      'shopName': 'Mybody',
+      'category': 'Supplement shop',
+      'shopOwnerName': 'Aakash Sharma',
+      'address': '20/90, Najafgarh Road, Dwarka, Delhi - 197769',
+      'shopTimings': '9AM to 10PM',
+      'shopOffHours': '1PM to 3PM',
+    },
+    {
+      'shopName': 'Jain Dairy',
+      'category': 'Dairy',
+      'shopOwnerName': 'Kunal Jain',
+      'address':
+          '30/49, Near Bhim Street, Pandav Road, Shahdara, Delhi - 119444',
+      'shopTimings': '9AM to 5PM',
+      'shopOffHours': '11AM to 3PM',
+    },
+    {
+      'shopName': 'H.C FOOD Bank',
+      'category': 'Restaurants',
+      'shopOwnerName': 'Hitesh',
+      'address':
+          'Hitesh Building ,1st Floor and 2nd Floor, Noida Road, Ghaziabad, U.P. - 198760',
+      'shopTimings': '5PM to 12PM',
+      'shopOffHours': '10PM to 10.15PM',
+    },
+    {
+      'shopName': 'No.1 Saloon',
+      'category': 'Saloon',
+      'shopOwnerName': 'Rohan Gupta',
+      'address': '13/2 , Gola Market, Sarita Vihar ,Delhi- 098760',
+      'shopTimings': '9AM to 7PM',
+      'shopOffHours': '11AM to 4PM',
+    },
+    {
+      'shopName': 'Anu Cosmetics',
+      'category': 'Cosmetics',
+      'shopOwnerName': 'Anu Yadav',
+      'address':
+          '80,4th Floor,Kajal Complex, Murthal Road, Sonipat, Haryana - 183750',
+      'shopTimings': '9AM to 8PM',
+      'shopOffHours': '2PM to 3PM',
+    },
+  ];
+
+//  List<Map<String, dynamic>> categories = [
+//    {
+//      'name': 'Jewellers',
+//      'img':
+//          'https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+//    },
+//    {
+//      'name': 'Food Shop',
+//      'img':
+//          'https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+//    },
+//    {
+//      'name': 'Barber Shop',
+//      'img':
+//          'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//    },
+//    {
+//      'name': 'Beauty Parlour',
+//      'img':
+//          'https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//    },
+//  ];
+
+  Map<String, dynamic> categories = {
+    'Jewellers':
+        'https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+    'Beauty Parlour':
+        'https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    'Saloon':
+        'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    'Restaurants':
+        'https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+    'Supplement shop':
+        'https://www.abc.net.au/cm/rimage/3774110-16x9-xlarge.jpg?v=4',
+    'Cosmetics':
+        'https://img2023.weyesimg.com/uploads/ouyeedisplays.allweyes.com/images/15335255647304.jpg?imageView2/2/w/800/q/75',
+    'Dairy':
+        'https://content3.jdmagicbox.com/comp/mumbai/n8/022pxx22.xx22.170721153711.a4n8/catalogue/royal-dairy-farm-boisar-mumbai-cake-shops-47wgxo0.jpg',
+    'General Store':
+        'https://www.maxpixel.net/static/photo/1x/Choctaw-Bluff-Alabama-Gas-Pumps-General-Store-305932.jpg',
+  };
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _stream=Firestore.instance.collection("merchants").snapshots();
+    _stream = Firestore.instance.collection("merchants").snapshots();
     getUserId();
   }
-  getUserId() async{
-    final user =await FirebaseAuth.instance.currentUser();
-    userId= await user.uid;
+
+  getUserId() async {
+    final user = await FirebaseAuth.instance.currentUser();
+    userId = await user.uid;
   }
-  @override
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(),
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: kPrimaryColor,
         title: Text("Mohalla Shops"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return CartScreen();
+              }));
+            },
+          )
+        ],
+      ),
+      bottomNavigationBar: FancyBottomBar(
+        type: FancyType.FancyV2, // Fancy Bar Type
+        items: [
+          FancyItem(
+            textColor: Colors.orange,
+            title: 'Home',
+            icon: Icon(Icons.home),
+          ),
+          FancyItem(
+            textColor: Colors.red,
+            title: 'Categories',
+            icon: Icon(Icons.category),
+          ),
+          FancyItem(
+            textColor: Colors.green,
+            title: 'Saved',
+            icon: Icon(Icons.save),
+          ),
+        ],
+        onItemSelected: (index) {
+          print(index);
+        },
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _stream,
-        builder: (context,snapshot){
-          if(snapshot.hasData){
-            shopName=[];
-            shopID=[];
-            shopAddress=[];
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
             final shops = snapshot.data.documents;
-            for(var eachShop in shops){
+            return Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+//                itemCount: shops.length,
+                itemCount: storesData.length,
+                itemBuilder: (context, index) {
+//                  String shopId = shops[index].documentID;
+//                  print(shopId.runtimeType);
+//                  String shopName = shops[index].data['shopname'];
+//                  String shopAddress = shops[index].data['address'];
+//                  String categoryName =
+//                      categories[index % categories.length]['name'];
+//                  String categoryImage =
+//                      categories[index % categories.length]['img'];
 
-               shopID.add(eachShop.documentID);
-               shopName.add(eachShop.data['sn']);
-               shopAddress.add(eachShop.data['a']);
+//                  String shopId = shops[index].documentID;
 
+                  String shopName = storesData[index]['shopName'];
+                  String shopAddress = storesData[index]['address'];
+                  String shopOwnerName = storesData[index]['shopOwnerName'];
+                  String shopTimings = storesData[index]['shopTimings'];
+                  String shopOffHours = storesData[index]['shopOffHours'];
+                  String categoryName = storesData[index]['category'];
+                  String categoryImage = categories[categoryName];
 
-
-            }
-            print(shopID);
-            return ListView.builder(
-              itemCount: shopName.length,
-              itemBuilder: (context,index){
-                return FlatButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EachShop(Id:shopID[index],name: shopName[index],address: shopAddress[index],userId: userId,)));
-                    },
-                    child: Text(shopName[index]));
-              },
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    child: Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: ListTile(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                        leading: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(categoryImage),
+                            ),
+                          ),
+                        ),
+                        title: Text(shopName ?? 'new'),
+                        trailing: Text(
+                          '${random.nextInt(5) + 1} km',
+                          style: TextStyle(color: kJuicyRedColor),
+                        ),
+                        subtitle: Text(categoryName),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EachShop(
+//                                shopId: shopId,
+                                shopName: shopName,
+                                shopOwnerName: shopOwnerName,
+                                shopAddress: shopAddress,
+                                shopTimings: shopTimings,
+                                shopOffHours: shopOffHours,
+                                userId: userId,
+                                categoryImg: categoryImage,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
             );
-
           }
           return CircularProgressIndicator();
         },

@@ -60,6 +60,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "143341395255-6h2gqm84v26uh44bt8gs361tlmh51jbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohallashops.users",
+            "certificate_hash": "6a45ad44e431fb3815004353b92a85b815f0ff12"
+          }
+        },
+        {
           "client_id": "143341395255-q9s4cm4hb73ma89q5qkqb71veio30dss.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
