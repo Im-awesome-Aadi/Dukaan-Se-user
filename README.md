@@ -1,16 +1,34 @@
-# users
+# DUKAAN SE (User Side App)
+<br>This app shows the details about the nearby local shops and bussiness offering products and services, so that the user can easily check the availabilty of the product which he/she want to buy and can schedule a pick up from the shops, hence reducing the crowd at the shop during peak hours and simultaneously helping in people to follow social distancing at the shops <br>
+<ul>
+  <li>
+Dukaan Se is a one-step mobile application that allows the users to conveniently avail the benefits of local products and services. It assists the users by schedule their pickups of the products and the appointment of services as per their convenience and slot availability.
+  </li>
+  <li>
+Now, no need to check out the products manually and waste your time to fill your cart and wait in the long billing lines. Just select out the items you want to purchase on the application, and the shop owner has your products ready at your convenient time slot.
+    </li>
+  <li>
+No more hustle by waiting for your turn to serve at local hair salons, beauty parlours and spas. Just schedule your appointment and went out at your scheduled time and avail the services by avoiding the crowds.
+    </li>
+      <li>
+No need to search for a product at multiple shops by roaming around. Just check out the availability of the product you want, at all of the nearby available shops and just schedule and pickup whenever you are free.
+        </li>
+</ul>
 
-A new Flutter application.
+## Screenshots
+<img src="https://user-images.githubusercontent.com/43954262/90976991-956fb000-e55f-11ea-98f0-a3aa98094ba1.jpeg" width="200">|
+<img src="https://user-images.githubusercontent.com/43954262/90977014-c94ad580-e55f-11ea-984a-ce441f9cb447.jpeg" width="200">|
+<img src="https://user-images.githubusercontent.com/43954262/90977022-cea82000-e55f-11ea-9692-821642aef52a.jpeg" width="200">|
+<img src="https://user-images.githubusercontent.com/43954262/90977028-d7005b00-e55f-11ea-8f6f-5f3d9e608ec0.jpeg" width="200">|
+<img src="https://user-images.githubusercontent.com/43954262/90977026-d2d43d80-e55f-11ea-9bdc-3af6d59289ec.jpeg" width="200">|
 
-## Getting Started
+### Check the Merchant Side of the App from [here] (https://github.com/shashankgupta3891/dukaan_se_merchant).
+If you found this project useful, then please consider giving it a :star: on Github and sharing it with your friends via social media.
 
-This project is a starting point for a Flutter application.
+## Project Created & Maintained By
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Aditya Maheshwari 
+**Flutter Developer** #Flutter, #Android Developer, #Passionate
+<a href="https://www.linkedin.com/in/aditya-maheshwari-0b9961166/"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
+<a href="https://www.facebook.com/profile.php?id=100006237135556"><img src="https://github.com/aritraroy/social-icons/blob/master/facebook-icon.png?raw=true" width="60"></a>
+<a href="https://www.instagram.com/aadi.mp3/"><img src="https://github.com/aritraroy/social-icons/blob/master/instagram-icon.png?raw=true" width="60"></a>
