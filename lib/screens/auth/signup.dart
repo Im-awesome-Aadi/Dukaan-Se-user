@@ -2,9 +2,9 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:users/constants.dart';
+import 'package:users/utilities/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:users/Model.dart';
+import 'file:///C:/Users/shash/OneDrive/Desktop/flutterProjects/users/lib/model/model.dart';
 
 import 'package:progress_dialog/progress_dialog.dart';
 

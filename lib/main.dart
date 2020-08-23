@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:users/signup.dart';
-import 'package:users/login.dart';
-import 'package:users/waiting.dart';
-import 'package:users/Dashboard.dart';
+import 'package:users/screens/auth/login.dart';
+
+import 'package:users/screens/auth/signup.dart';
+import 'package:users/screens/dashboard.dart';
+
+import 'package:users/controller/waiting.dart';
 
 void main() => runApp(MyApp());
 

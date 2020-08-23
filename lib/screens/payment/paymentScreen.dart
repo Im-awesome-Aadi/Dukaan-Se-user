@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:users/finalOrderDetails.dart';
+import 'package:users/screens/finalOrderDetails.dart';
 
-import 'constants.dart';
+import 'package:users/utilities/constants.dart';
 
 class PaymentScreen extends StatefulWidget {
   @override

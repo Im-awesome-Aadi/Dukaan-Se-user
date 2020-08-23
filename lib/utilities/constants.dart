@@ -21,6 +21,7 @@ TextStyle kTextStyle = TextStyle(color: Colors.black);
 final Color kPrimaryColor = Color(0xff136a8a);
 final Color kSecondaryColor = Color(0xff267871);
 final Color kJuicyRedColor = Color(0xffff4757);
+final Color kStarColor = Color(0xffFFBE00);
 
 final List<Color> kAuthGradient = [
   Color(0xff136a8a),
