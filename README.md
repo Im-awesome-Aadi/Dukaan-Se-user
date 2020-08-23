@@ -1,5 +1,9 @@
 # DUKAAN SE (User Side App)
+
+## About the App
 <br>This app shows the details about the nearby local shops and bussiness offering products and services, so that the user can easily check the availabilty of the product which he/she want to buy and can schedule a pick up from the shops, hence reducing the crowd at the shop during peak hours and simultaneously helping in people to follow social distancing at the shops <br>
+
+## About the Project
 <ul>
   <li>
 Dukaan Se is a one-step mobile application that allows the users to conveniently avail the benefits of local products and services. It assists the users by schedule their pickups of the products and the appointment of services as per their convenience and slot availability.
