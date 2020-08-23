@@ -26,7 +26,7 @@ No need to search for a product at multiple shops by roaming around. Just check 
 <img src="https://user-images.githubusercontent.com/43954262/90977028-d7005b00-e55f-11ea-8f6f-5f3d9e608ec0.jpeg" width="200">|
 <img src="https://user-images.githubusercontent.com/43954262/90977026-d2d43d80-e55f-11ea-9bdc-3af6d59289ec.jpeg" width="200">|
 
-### Check the Merchant Side of the App from [here] (https://github.com/shashankgupta3891/dukaan_se_merchant).
+### Check the Merchant Side of the App from [here](https://github.com/shashankgupta3891/dukaan_se_merchant).
 If you found this project useful, then please consider giving it a :star: on Github and sharing it with your friends via social media.
 
 ## Project Created & Maintained By
