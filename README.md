@@ -33,7 +33,7 @@ If you found this project useful, then please consider giving it a :star: on Git
 
 ## Project Created & Maintained By
 
-### Aditya Maheshwari 
-### Shashank Gupta
-### Akash Gupta
-### Harshit Awasthi
+### [Aditya Maheshwari ](https://www.linkedin.com/in/aditya-maheshwari-0b9961166/)
+### [Shashank Gupta](https://www.linkedin.com/in/shashankgupta3891/)
+### [Akash Gupta](https://www.linkedin.com/in/akashgupta2000/)
+### [Harshit Awasthi](https://www.linkedin.com/in/harshit-awasthi-8496241a4/)
